@@ -7,10 +7,13 @@ function Card(props) {
 
   return (
     <article className={styles.article}>
-      <img src={`images/${fileName}`} alt={title} />
-      <section>
-        <h2>{title}</h2>
-        <p>{`$${price}`}</p>
+      <img src={`images/${fileName}`} alt={title} className={styles.img} />
+      <section className={styles.section}>
+        <h2 className={styles.h2}>{title}</h2>
+        <p className={styles.p}>{`$${price}`}</p>
+        <button type="button" className={styles.button}>
+          Add to cart
+        </button>
       </section>
     </article>
   );

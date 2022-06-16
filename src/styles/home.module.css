@@ -3,6 +3,7 @@
   box-sizing: inherit;
   display: flex;
   justify-content: center;
+  background-color: whitesmoke;
 }
 
 .container {

@@ -3,12 +3,13 @@
   box-sizing: inherit;
   display: flex;
   justify-content: center;
+  background-color: whitesmoke;
 }
 
 .container {
-  width: 80%;
   margin: 4% 0;
   display: grid;
   grid-template-columns: repeat(3, auto);
-  gap: 20px;
+  justify-items: center;
+  gap: 80px;
 }
