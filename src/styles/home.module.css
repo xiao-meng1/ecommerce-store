@@ -29,10 +29,10 @@
 }
 
 .button {
-  width: 80%;
-  font-size: 150%;
+  font-size: 200%;
   font-weight: 900;
-  padding: 20px 0;
+  padding: 20px 60px;
+  text-decoration: none;
   color: white;
   background-color: black;
   border-radius: 100px;

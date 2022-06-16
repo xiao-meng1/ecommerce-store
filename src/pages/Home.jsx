@@ -12,10 +12,8 @@ function Home() {
           <h2 className={styles.h2}>
             We have the best games at the lowest prices
           </h2>
-          <Link to="/products">
-            <button className={styles.button} type="button">
-              Shop now
-            </button>
+          <Link to="/products" className={styles.button}>
+            Shop now
           </Link>
         </article>
         <img className={styles.img} src={gamesImage} alt="video games" />
