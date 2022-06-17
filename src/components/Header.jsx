@@ -1,8 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from '../styles/header.module.css';
 
-function Header() {
+function Header(props) {
+  const { onCartClick, cartItems } = props;
+
+  const totalItems = cartItems.reduce(
+    (total, item) => item.quantity + total,
+    0
+  );
+
   return (
     <header className={styles.header}>
       <Link to="/" className={styles.link}>
@@ -15,10 +23,33 @@ function Header() {
         <Link to="products" className={`${styles.link} ${styles.underline}`}>
           Products
         </Link>
-        <span className={styles.underline}>Cart</span>
+        <button
+          type="button"
+          onClick={onCartClick}
+          className={styles.underline}
+        >
+          Cart {totalItems !== 0 ? `(${totalItems})` : null}
+        </button>
       </div>
     </header>
   );
 }
+
+Header.defaultProps = {
+  onCartClick: () => {},
+  cartItems: [],
+};
+
+Header.propTypes = {
+  onCartClick: PropTypes.func,
+  cartItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      price: PropTypes.string,
+      fileName: PropTypes.string,
+      quantity: PropTypes.number,
+    })
+  ),
+};
 
 export default Header;

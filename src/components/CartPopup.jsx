@@ -4,11 +4,33 @@ import CartItem from './CartItem';
 import styles from '../styles/cartPopup.module.css';
 
 function CartPopup(props) {
-  const { cartItems } = props;
+  const {
+    cartItems,
+    onCloseClick,
+    onScreenBlockerClick,
+    addProductToCart,
+    removeProductFromCart,
+  } = props;
+
+  const totalPrice = cartItems.reduce(
+    (total, item) =>
+      Number.parseFloat(
+        Number(
+          Number.parseFloat(Number(item.price) * item.quantity).toFixed(2)
+        ) + total
+      ).toFixed(2),
+    0
+  );
 
   return (
     <div className={styles.popup}>
-      <div className={styles.screenBlocker}>Screen Blocker</div>
+      <button
+        type="button"
+        onClick={onScreenBlockerClick}
+        className={styles.screenBlocker}
+      >
+        Screen Blocker
+      </button>
       <div className={styles.container}>
         <h2>Your shopping cart</h2>
         <div className={styles.items}>
@@ -19,13 +41,20 @@ function CartPopup(props) {
               price={item.price}
               fileName={item.fileName}
               quantity={item.quantity}
+              addProductToCart={addProductToCart}
+              removeProductFromCart={removeProductFromCart}
             />
           ))}
         </div>
+        <p>Total: ${totalPrice}</p>
         <button type="button" className={`${styles.button} ${styles.checkout}`}>
           Checkout
         </button>
-        <button type="button" className={`${styles.button} ${styles.close}`}>
+        <button
+          type="button"
+          onClick={onCloseClick}
+          className={`${styles.button} ${styles.close}`}
+        >
           Close
         </button>
       </div>
@@ -35,17 +64,25 @@ function CartPopup(props) {
 
 CartPopup.defaultProps = {
   cartItems: [],
+  onCloseClick: () => {},
+  onScreenBlockerClick: () => {},
+  addProductToCart: () => {},
+  removeProductFromCart: () => {},
 };
 
 CartPopup.propTypes = {
-  cartItems: [
-    {
+  cartItems: PropTypes.arrayOf(
+    PropTypes.shape({
       title: PropTypes.string,
       price: PropTypes.string,
       fileName: PropTypes.string,
-      quantity: PropTypes.string,
-    },
-  ],
+      quantity: PropTypes.number,
+    })
+  ),
+  onCloseClick: PropTypes.func,
+  onScreenBlockerClick: PropTypes.func,
+  addProductToCart: PropTypes.func,
+  removeProductFromCart: PropTypes.func,
 };
 
 export default CartPopup;

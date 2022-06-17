@@ -21,6 +21,14 @@
   font-size: 30px;
 }
 
+.right > button {
+  color: inherit;
+  text-decoration: none;
+  background-color: black;
+  border: none;
+  font-size: inherit;
+}
+
 .link, .link:visited {
   color: inherit;
   text-decoration: none;

@@ -4,59 +4,82 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import CartPopup from './components/CartPopup';
+import productData from './data/products.json';
 import styles from './styles/app.module.css';
 
 function App() {
-  const [cartPopupActive] = useState(true);
-  const [cartItems] = useState([
-    {
-      title: 'Animal Crossing: New Horizons',
-      price: '79.99',
-      fileName: 'animal-crossing-new-horizons-cover.webp',
-      quantity: '1',
-    },
-    {
-      title: 'Dark Souls: Remastered',
-      price: '79.99',
-      fileName: 'dark-souls-remastered-cover.cover_300x.jpg',
-      quantity: '1',
-    },
-    {
-      title: 'Fire Emblem: Three Houses',
-      price: '69.99',
-      fileName: 'fire-emblem-three-houses-cover.cover_300x.jpg',
-      quantity: '1',
-    },
-    {
-      title: 'Animal Crossing: New Horizons',
-      price: '79.99',
-      fileName: 'animal-crossing-new-horizons-cover.webp',
-      quantity: '1',
-    },
-    {
-      title: 'Dark Souls: Remastered',
-      price: '79.99',
-      fileName: 'dark-souls-remastered-cover.cover_300x.jpg',
-      quantity: '1',
-    },
-    {
-      title: 'Fire Emblem: Three Houses',
-      price: '69.99',
-      fileName: 'fire-emblem-three-houses-cover.cover_300x.jpg',
-      quantity: '1',
-    },
-  ]);
+  const [cartPopupActive, setCartPopupActive] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
+
+  const toggleCartPopupActive = () => {
+    setCartPopupActive((state) => !state);
+  };
+
+  const addProductToCart = (title) => {
+    const cartItemsClone = structuredClone(cartItems);
+    const productInCart = cartItemsClone.find(
+      (product) => product.title === title
+    );
+
+    if (productInCart) {
+      productInCart.quantity += 1;
+      setCartItems(cartItemsClone);
+
+      return;
+    }
+
+    const { price, fileName } = productData.find(
+      (product) => product.title === title
+    );
+    const newProduct = {
+      title,
+      price,
+      fileName,
+      quantity: 1,
+    };
+
+    setCartItems((state) => [...state, newProduct]);
+  };
+
+  const removeProductFromCart = (title) => {
+    const cartItemsClone = structuredClone(cartItems);
+    const productInCart = cartItemsClone.find(
+      (product) => product.title === title
+    );
+
+    if (productInCart.quantity === 1) {
+      const index = cartItemsClone.indexOf(productInCart);
+      cartItemsClone.splice(index, 1);
+      setCartItems(cartItemsClone);
+
+      return;
+    }
+
+    productInCart.quantity -= 1;
+    setCartItems(cartItemsClone);
+  };
 
   return (
     <div className={styles.app}>
       <BrowserRouter>
-        <Header />
+        <Header onCartClick={toggleCartPopupActive} cartItems={cartItems} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
+          <Route
+            path="/products"
+            element={<Products addProductToCart={addProductToCart} />}
+          />
         </Routes>
       </BrowserRouter>
-      {cartPopupActive ? <CartPopup cartItems={cartItems} /> : null}
+      {cartPopupActive ? (
+        <CartPopup
+          cartItems={cartItems}
+          onCloseClick={toggleCartPopupActive}
+          onScreenBlockerClick={toggleCartPopupActive}
+          addProductToCart={addProductToCart}
+          removeProductFromCart={removeProductFromCart}
+        />
+      ) : null}
     </div>
   );
 }

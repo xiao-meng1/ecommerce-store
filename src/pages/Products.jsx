@@ -1,23 +1,35 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from '../styles/products.module.css';
-import products from '../data/products.json';
+import productData from '../data/products.json';
 import Card from '../components/Card';
 
-function Products() {
+function Products(props) {
+  const { addProductToCart } = props;
+
   return (
     <main className={styles.main}>
       <div className={styles.container}>
-        {products.map((item) => (
+        {productData.map((item) => (
           <Card
             title={item.title}
             key={item.title}
             price={item.price}
             fileName={item.fileName}
+            addProductToCart={addProductToCart}
           />
         ))}
       </div>
     </main>
   );
 }
+
+Products.defaultProps = {
+  addProductToCart: () => {},
+};
+
+Products.propTypes = {
+  addProductToCart: PropTypes.func,
+};
 
 export default Products;
