@@ -1,0 +1,62 @@
+.popup {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.screenBlocker {
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+}
+
+.container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  padding: 30px;
+  background-color: white;
+  font-size: 20px;
+}
+
+.container > h2 {
+  text-align: center;
+  margin-top: 0;
+  font-size: 36px;
+}
+
+.items {
+  height: 60vh;
+  overflow-y: scroll;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+  border: 0;
+  border-radius: 10px;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.checkout {
+  margin-bottom: 20px;
+  cursor: pointer;
+  background-color: greenyellow;
+}
+
+.close {
+  background-color: lightcoral;
+}
