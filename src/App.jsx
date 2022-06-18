@@ -62,7 +62,7 @@ function App() {
 
   return (
     <div className={styles.app}>
-      <BrowserRouter>
+      <BrowserRouter basename="/app">
         <Header onCartClick={toggleCartPopupActive} cartItems={cartItems} />
         <Routes>
           <Route path="/" element={<Home />} />

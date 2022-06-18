@@ -6,6 +6,7 @@
     "@jest/console": "^28.1.1",
     "@testing-library/dom": "^8.13.0",
     "core-js-pure": "^3.23.1",
+    "gh-pages": "^4.0.0",
     "jest": "^28.1.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -19,7 +20,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "jest-preview": "jest-preview"
+    "jest-preview": "jest-preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
