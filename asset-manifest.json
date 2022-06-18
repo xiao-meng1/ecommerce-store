@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.d4a4564b.css",
-    "main.js": "/static/js/main.95538d69.js",
+    "main.js": "/static/js/main.a2766fae.js",
     "static/media/switch_games.jpg": "/static/media/switch_games.bdeb811fbcb70c7c6c3c.jpg",
     "index.html": "/index.html",
     "main.d4a4564b.css.map": "/static/css/main.d4a4564b.css.map",
-    "main.95538d69.js.map": "/static/js/main.95538d69.js.map"
+    "main.a2766fae.js.map": "/static/js/main.a2766fae.js.map"
   },
   "entrypoints": [
     "static/css/main.d4a4564b.css",
-    "static/js/main.95538d69.js"
+    "static/js/main.a2766fae.js"
   ]
 }
