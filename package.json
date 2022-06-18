@@ -56,5 +56,6 @@
     "jest-preview": "^0.2.4",
     "latest": "^0.2.0",
     "node": "^17.7.2"
-  }
+  },
+  "homepage": "https://xiao-meng1.github.io/shopping-cart"
 }

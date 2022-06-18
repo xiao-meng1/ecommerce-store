@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import structuredClone from 'core-js-pure/actual/structured-clone';
 import Header from './components/Header';
 import Home from './pages/Home';
@@ -62,7 +62,7 @@ function App() {
 
   return (
     <div className={styles.app}>
-      <BrowserRouter basename="/app">
+      <HashRouter>
         <Header onCartClick={toggleCartPopupActive} cartItems={cartItems} />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -71,7 +71,7 @@ function App() {
             element={<Products addProductToCart={addProductToCart} />}
           />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
       {cartPopupActive ? (
         <CartPopup
           cartItems={cartItems}
