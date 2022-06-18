@@ -19,7 +19,7 @@ function CartItem(props) {
   };
 
   return (
-    <section className={styles.section}>
+    <section className={styles.section} data-testid="cart-item">
       <img src={`images/${fileName}`} alt={title} />
       <div className={styles.container}>
         <h3>{title}</h3>

@@ -9,7 +9,7 @@ function Card(props) {
   };
 
   return (
-    <article className={styles.article}>
+    <article className={styles.article} data-testid="card">
       <img src={`images/${fileName}`} alt={title} className={styles.img} />
       <section className={styles.section}>
         <h2 className={styles.h2}>{title}</h2>

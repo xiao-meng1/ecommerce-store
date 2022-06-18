@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import structuredClone from 'core-js-pure/actual/structured-clone';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Products from './pages/Products';

@@ -31,7 +31,7 @@ function CartPopup(props) {
       >
         Screen Blocker
       </button>
-      <div className={styles.container}>
+      <div className={styles.container} data-testid="cart">
         <h2>Your shopping cart</h2>
         <div className={styles.items}>
           {cartItems.map((item) => (
