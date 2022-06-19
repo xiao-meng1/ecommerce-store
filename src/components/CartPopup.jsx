@@ -17,7 +17,7 @@ function CartPopup(props) {
       Number.parseFloat(
         Number(
           Number.parseFloat(Number(item.price) * item.quantity).toFixed(2)
-        ) + total
+        ) + Number(total)
       ).toFixed(2),
     0
   );
