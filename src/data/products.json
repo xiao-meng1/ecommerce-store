@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Animal Crossing: New Horizons",
+    "price": "79.99",
+    "fileName": "animal-crossing-new-horizons-cover.webp"
+  },
+  {
+    "title": "Dark Souls: Remastered",
+    "price": "79.99",
+    "fileName": "dark-souls-remastered-cover.cover_300x.jpg"
+  },
+  {
+    "title": "Fire Emblem: Three Houses",
+    "price": "69.99",
+    "fileName": "fire-emblem-three-houses-cover.cover_300x.jpg"
+  },
+  {
+    "title": "The Legend of Zelda: Breath of the Wild",
+    "price": "79.99",
+    "fileName": "legend-of-zelda-breath-of-the-wild-cover.cover_300x.jpg"
+  },
+  {
+    "title": "Luigi's Mansion 3",
+    "price": "69.99",
+    "fileName": "luigis-mansion-3-cover.webp"
+  },
+  {
+    "title": "Mario Kart 8 Deluxe",
+    "price": "79.99",
+    "fileName": "mario-kart-8-deluxe-cover.cover_300x.jpg"
+  },
+  {
+    "title": "Metroid Dread",
+    "price": "69.99",
+    "fileName": "metroid-dread-cover.webp"
+  },
+  {
+    "title": "Nintendo Switch Sports",
+    "price": "49.99",
+    "fileName": "nintendo-switch-sports-cover.webp"
+  },
+  {
+    "title": "Pokemon Sword and Shield",
+    "price": "79.99",
+    "fileName": "pokemon-sword-and-shield-cover.webp"
+  },
+  {
+    "title": "Splatoon 3",
+    "price": "59.99",
+    "fileName": "splatoon-3-cover.cover_300x.jpg"
+  },
+  {
+    "title": "Super Mario Odyssey",
+    "price": "79.99",
+    "fileName": "super-mario-odyssey-cover.cover_300x.jpg"
+  },
+  {
+    "title": "Super Smash Bros. Ultimate",
+    "price": "79.99",
+    "fileName": "super-smash-bros-ultimate-cover.cover_300x.jpg"
+  }
+]
