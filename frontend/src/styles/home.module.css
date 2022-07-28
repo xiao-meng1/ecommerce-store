@@ -1,0 +1,44 @@
+.main {
+  height: 100%;
+  box-sizing: inherit;
+  display: flex;
+  justify-content: center;
+  background-color: whitesmoke;
+}
+
+.container {
+  width: 80%;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 30% 50%;
+  justify-content: center;
+  gap: 5%;
+  margin: 8% 0;
+}
+
+.img {
+  width: 100%;
+  border-radius: 50px;
+}
+
+.h3 {
+  font-size: 150%;
+}
+
+.h2 {
+  font-size: 300%;
+}
+
+.button {
+  font-size: 200%;
+  font-weight: 900;
+  padding: 20px 60px;
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  border-radius: 100px;
+}
+
+.button:hover {
+  background-color: rgb(83, 83, 83);
+}
