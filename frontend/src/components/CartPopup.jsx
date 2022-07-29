@@ -47,9 +47,17 @@ function CartPopup(props) {
           ))}
         </div>
         <p>Total: ${totalPrice}</p>
-        <button type="button" className={`${styles.button} ${styles.checkout}`}>
-          Checkout
-        </button>
+        <form
+          action={`${process.env.REACT_APP_BACKEND_ORIGIN}/checkout/create-checkout-session`}
+          method="POST"
+        >
+          <button
+            type="submit"
+            className={`${styles.button} ${styles.checkout}`}
+          >
+            Checkout
+          </button>
+        </form>
         <button
           type="button"
           onClick={onCloseClick}

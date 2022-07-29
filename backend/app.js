@@ -1,9 +1,13 @@
+require('dotenv').config();
+
 const createError = require('http-errors');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const cors = require('cors');
 
-const indexRouter = require('./routes/indexRouter');
+const indexRouter = require('./routes/index');
+const checkoutRouter = require('./routes/checkout');
 
 const app = express();
 
@@ -12,8 +16,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// CORS
+app.use(
+  cors({
+    origin: process.env.FRONTEND_ORIGIN || false,
+  })
+);
+
 // routers
 app.use('/', indexRouter);
+app.use('/checkout', checkoutRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
