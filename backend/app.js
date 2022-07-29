@@ -1,7 +1,8 @@
 require('dotenv').config();
 
-const createError = require('http-errors');
 const express = require('express');
+const mongoose = require('mongoose');
+const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
@@ -11,6 +12,17 @@ const checkoutRouter = require('./routes/checkout');
 
 const app = express();
 
+//Mongoose connection
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+const db = mongoose.connection;
+db.on('error', () => {
+  console.error('MongoDB connection error:');
+});
+
+// Middleware
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
