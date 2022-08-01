@@ -2,10 +2,19 @@
   {
     "name": "Xenoblade Chronicles 3",
     "category": "Games",
-    "subcategory": "",
+    "subcategory": "New Releases",
     "description": "Join Noah and Mio, members of the two opposing nations at the center of this conflict, on a heartfelt journey to end the cycle of violence. A group of six characters from these nations join together to awaken the colonies of Aionios to the underlying threat both nations face. Traverse massive, fantastical sci-fi landscapes as you expose the true enemy pulling the strings behind the conflicts.",
     "MSRP (CAD in cents)": 7999,
     "image file": "114560-nintendo-switch-xenoblade-chron-3-1200x675.jpg",
+    "stock": 10
+  },
+  {
+    "name": "Kirby's Dream Buffet",
+    "category": "Games",
+    "subcategory": "Upcoming",
+    "description": "Roll through a smorgasbord of food-themed stages in 4 rounds of 4-player* fun as Kirby…who seems rounder than usual? Race through delicious obstacle courses to collect strawberries as Kirby grows. Then, turn the tides in the final round—a fruity fight atop a floating platform.",
+    "MSRP (CAD in cents)": 6999,
+    "image file": "kirbys-dream-bullet.jpg",
     "stock": 10
   },
   {
@@ -16,5 +25,59 @@
     "MSRP (CAD in cents)": 7999,
     "image file": "108044-switch-super-smash-bros-ultimate-can-1200x675.jpg",
     "stock": 10
+  },
+  {
+    "name": "Nintendo Switch - OLED Model White set",
+    "category": "Hardware",
+    "subcategory": "Consoles",
+    "description": "Introducing the newest member of the Nintendo Switch family Play at home on the TV or on-the-go with a vibrant 7-inch OLED screen with the Nintendo Switch system - OLED model.",
+    "MSRP (CAD in cents)": 44999,
+    "image file": "114560-nintendo-switch-xenoblade-chron-3-1200x675.jpg",
+    "stock": 10
+  },
+  {
+    "name": "Joy-Con Set (L+R) - Neon Pink/Neon Green",
+    "category": "Hardware",
+    "subcategory": "Controllers",
+    "description": "One controller or two, vertical or sideways, motion controls or buttons…Joy‑Con and Nintendo Switch give you total gameplay flexibility.",
+    "MSRP (CAD in cents)": 9999,
+    "image file": "107377-nintendo-switch-joy-con-pink-green-1200x675.jpg",
+    "stock": 30
+  },
+  {
+    "name": "Nintendo Switch Carrying Case & Screen Protector",
+    "category": "Hardware",
+    "subcategory": "Accessories",
+    "description": "Help protect your Nintendo Switch system when you’re on the go with the Nintendo Switch Carrying Case & Screen Protector.",
+    "MSRP (CAD in cents)": 2499,
+    "image file": "114296-switch-carrying-case-black_silver-front-1200x675.jpg",
+    "stock": 30
+  },
+  {
+    "name": "Animal Crossing - Nintendo Switch Mini Backpack - Teal Leaves",
+    "category": "Merchandise",
+    "subcategory": "Backpacks",
+    "description": "This cute, Premium Animal Crossing bag & mini backpack stores the Nintendo Switch or Nintendo Switch Lite systems for easy portability with enough internal space for accessories and your charging cable.",
+    "MSRP (CAD in cents)": 6249,
+    "image file": "116083-razer-teal-leaves-backpack-front-angle-1200x675.jpg",
+    "stock": 10
+  },
+  {
+    "name": "Mushroom Kingdom Collection - Mario & Goomba Mug",
+    "category": "Merchandise",
+    "subcategory": "Mugs",
+    "description": "Enjoy your morning coffee, evening tea, or anytime sundae with this delightful mug featuring Mario and a garrison of Goombas.",
+    "MSRP (CAD in cents)": 2499,
+    "image file": "116548-mushroom-kingdom-mug-mario-enemies-red-1-1200x675.jpg",
+    "stock": 5
+  },
+  {
+    "name": "Mario 10 inch Plush",
+    "category": "Merchandise",
+    "subcategory": "Plushies",
+    "description": "Bring home a soft & cuddly, officially licensed Super Mario 10 inch plush toy.",
+    "MSRP (CAD in cents)": 1699,
+    "image file": "107362-little-buddy-mario-plush-mario-10-inch-1200x675.jpg",
+    "stock": 5
   }
 ]
