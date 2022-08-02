@@ -1,6 +1,7 @@
 :root {
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
+  --red-color: rgb(230, 0, 18);
 }
 
 html, body, #root {
@@ -14,4 +15,14 @@ body, #root {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }

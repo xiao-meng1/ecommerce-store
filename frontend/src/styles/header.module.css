@@ -1,40 +1,57 @@
-.header {
-  position: sticky;
-  top: 0;
-  display: grid;
-  grid-auto-flow: column;
-  padding: 30px 200px;
-  background-color: black;
-  color: white;
+.main_navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  color: black;
+  font-weight: 900;
+  border-bottom: solid lightgray 0.5px;
 }
 
-.h1 {
+.left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--red-color);
+  padding: 10px 30px;
+  height: 100%;
+}
+
+.left h1 {
   margin: 0;
-  font-size: 60px;
+  padding: 0 6px;
+  font-size: 16px;
+  color: white;
+  border: solid white 2px;
+  border-radius: 20px;
 }
 
 .right {
-  justify-self: end;
   display: flex;
   align-items: center;
+  padding: 10px 40px;
   gap: 50px;
-  font-size: 30px;
+  font-size: 16px;
 }
 
-.right > button {
-  color: inherit;
-  text-decoration: none;
-  background-color: black;
-  border: none;
-  font-size: inherit;
-}
-
-.link, .link:visited {
+.right a {
   color: inherit;
   text-decoration: none;
 }
 
-.underline:hover {
-  border-bottom: solid white 10px;
+.secondary_navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 90px;
+  font-size: 18px;
+  font-weight: 900;
 }
 
+.secondary_navbar > button {
+  padding: 8px 16px;
+}
+
+.red_on_hover:hover {
+  color: var(--red-color);
+}
