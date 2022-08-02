@@ -3,41 +3,20 @@ import PropTypes from 'prop-types';
 import styles from '../styles/cartItem.module.css';
 
 function CartItem(props) {
-  const {
-    title,
-    price,
-    fileName,
-    quantity,
-    addProductToCart,
-    removeProductFromCart,
-  } = props;
-  const handleAddButtonClick = () => {
-    addProductToCart(title);
-  };
-  const handleSubtractButtonClick = () => {
-    removeProductFromCart(title);
-  };
+  const { title, price, fileName, quantity } = props;
 
   return (
     <section className={styles.section} data-testid="cart-item">
       <img src={`images/${fileName}`} alt={title} />
       <div className={styles.container}>
         <h3>{title}</h3>
-        <p>${Number.parseFloat(Number(price) * Number(quantity)).toFixed(2)}</p>
+        <p>${price}</p>
         <div className={styles.buttons}>
-          <button
-            type="button"
-            onClick={handleSubtractButtonClick}
-            className={styles.subtract}
-          >
+          <button type="button" className={styles.subtract}>
             -
           </button>
           <p>{quantity}</p>
-          <button
-            type="button"
-            onClick={handleAddButtonClick}
-            className={styles.add}
-          >
+          <button type="button" className={styles.add}>
             +
           </button>
         </div>
@@ -51,8 +30,6 @@ CartItem.defaultProps = {
   price: '',
   fileName: '',
   quantity: 0,
-  addProductToCart: '',
-  removeProductFromCart: '',
 };
 
 CartItem.propTypes = {
@@ -60,8 +37,6 @@ CartItem.propTypes = {
   price: PropTypes.string,
   fileName: PropTypes.string,
   quantity: PropTypes.number,
-  addProductToCart: PropTypes.func,
-  removeProductFromCart: PropTypes.func,
 };
 
 export default CartItem;

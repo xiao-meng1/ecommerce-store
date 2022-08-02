@@ -12,7 +12,7 @@ function Home() {
           <h2 className={styles.h2}>
             We have the best games at the lowest prices
           </h2>
-          <Link to="/products" className={styles.button}>
+          <Link to="/store" className={styles.button}>
             Shop now
           </Link>
         </article>

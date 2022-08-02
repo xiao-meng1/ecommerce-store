@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/shopping-cart/static/css/main.d4a4564b.css",
-    "main.js": "/shopping-cart/static/js/main.491411f5.js",
+    "main.js": "/shopping-cart/static/js/main.a5e3e070.js",
     "static/media/switch_games.jpg": "/shopping-cart/static/media/switch_games.bdeb811fbcb70c7c6c3c.jpg",
     "index.html": "/shopping-cart/index.html",
     "main.d4a4564b.css.map": "/shopping-cart/static/css/main.d4a4564b.css.map",
-    "main.491411f5.js.map": "/shopping-cart/static/js/main.491411f5.js.map"
+    "main.a5e3e070.js.map": "/shopping-cart/static/js/main.a5e3e070.js.map"
   },
   "entrypoints": [
     "static/css/main.d4a4564b.css",
-    "static/js/main.491411f5.js"
+    "static/js/main.a5e3e070.js"
   ]
 }
