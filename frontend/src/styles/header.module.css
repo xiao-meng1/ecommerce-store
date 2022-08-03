@@ -1,8 +1,14 @@
+.header {
+  z-index: 10;
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
 .main_navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
   color: black;
   font-weight: 900;
   border-bottom: solid lightgray 0.5px;
@@ -62,8 +68,8 @@
   gap: 40px;
   font-size: 18px;
   font-weight: 900;
-  background-color: white;
   border-bottom: solid lightgray 0.5px;
+  background-color: inherit;
 }
 
 .dropdown_navbar > a {

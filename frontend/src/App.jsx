@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Store from './pages/Store';
 import ProductDetail from './pages/ProductDetail';
+// import Overlay from './components/Overlay';
 import styles from './styles/app.module.css';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <main>
+          {/* <Overlay /> */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/store" element={<Store />} />

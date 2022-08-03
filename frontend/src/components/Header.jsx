@@ -13,7 +13,7 @@ function Header() {
   const [activeCategory, setActiveCategory] = useState();
 
   return (
-    <header>
+    <header className={styles.header}>
       <nav className={styles.main_navbar}>
         <Link to="/" className={styles.left}>
           <h1>Video Game Store</h1>
