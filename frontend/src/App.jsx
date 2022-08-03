@@ -11,11 +11,13 @@ function App() {
     <div className={styles.app}>
       <BrowserRouter>
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/store" element={<Store />} />
-          <Route path="/product" element={<ProductDetail />} />
-        </Routes>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/store" element={<Store />} />
+            <Route path="/product" element={<ProductDetail />} />
+          </Routes>
+        </main>
       </BrowserRouter>
     </div>
   );

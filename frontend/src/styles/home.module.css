@@ -1,11 +1,3 @@
-.main {
-  height: 100%;
-  box-sizing: inherit;
-  display: flex;
-  justify-content: center;
-  background-color: whitesmoke;
-}
-
 .container {
   width: 80%;
   display: grid;

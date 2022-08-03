@@ -46,10 +46,38 @@
   gap: 90px;
   font-size: 18px;
   font-weight: 900;
+  border-bottom: solid lightgray 0.5px;
 }
 
 .secondary_navbar > button {
   padding: 8px 16px;
+}
+
+.dropdown_navbar {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  font-size: 18px;
+  font-weight: 900;
+  background-color: white;
+  border-bottom: solid lightgray 0.5px;
+}
+
+.dropdown_navbar > a {
+  margin: 12px;
+  padding: 8px 16px;
+  border: solid lightgray 1px;
+  border-radius: 6px;
+  color: white;
+  background-color: var(--red-color);
+}
+
+.dropdown_navbar > a:hover {
+  transform: scale(1.1, 1.1);
+  background-color: var(--dark-red-color);
 }
 
 .red_on_hover:hover {
