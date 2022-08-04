@@ -5,6 +5,10 @@
   --dark-red-color: rgb(181, 0, 21);
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html, body, #root {
   margin: 0;
 }

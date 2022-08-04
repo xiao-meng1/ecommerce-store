@@ -16,47 +16,77 @@ function Sidebar() {
   const [activeCategory, setActiveCategory] = useState('');
 
   return (
-    <aside>
-      <header>
-        <h2>Menu</h2>
-      </header>
-      {productCategories.map((category) => (
-        <section key={category.main}>
-          <button
-            type="button"
-            onClick={() => {
-              setActiveCategory(category.main);
-            }}
-          >
-            {category.main}
-          </button>
-          {activeCategory === category.main ? (
-            <nav className={styles.dropdown_navbar}>
-              <Link
-                to={`/store/${activeCategory}`}
+    <aside className={styles.sticky_container}>
+      <div className={styles.sidebar}>
+        <header className={styles.header}>
+          <h2>Menu</h2>
+        </header>
+        <nav>
+          {productCategories.map((category) => (
+            <section key={category.main}>
+              <button
+                type="button"
+                className={styles.category}
                 onClick={() => {
-                  setActiveCategory('');
+                  if (category.main === activeCategory) {
+                    setActiveCategory('');
+                  } else {
+                    setActiveCategory(category.main);
+                  }
                 }}
               >
-                {`Shop all ${activeCategory}`}
-              </Link>
-              {productCategories
-                .find((x) => x.main === activeCategory)
-                .secondary.map((subCategory) => (
+                <p>{category.main}</p>
+                {category.main === activeCategory ? (
+                  <img
+                    src="images/icons/expand_less_black_24dp.svg"
+                    alt="expand less icon"
+                  />
+                ) : (
+                  <img
+                    src="images/icons/expand_more_black_24dp.svg"
+                    alt="expand more icon"
+                  />
+                )}
+              </button>
+              {activeCategory === category.main ? (
+                <>
                   <Link
-                    to={`/store/${activeCategory}/${subCategory}`}
+                    to={`/store/${activeCategory}`}
+                    className={styles.subcategory}
                     onClick={() => {
                       setActiveCategory('');
                     }}
-                    key={subCategory}
                   >
-                    {subCategory}
+                    <p>{`Shop all ${activeCategory}`}</p>
+                    <img
+                      src="images/icons/navigate_next_black_24dp.svg"
+                      alt="navigate next icon"
+                    />
                   </Link>
-                ))}
-            </nav>
-          ) : null}
-        </section>
-      ))}
+                  {productCategories
+                    .find((x) => x.main === activeCategory)
+                    .secondary.map((subCategory) => (
+                      <Link
+                        to={`/store/${activeCategory}/${subCategory}`}
+                        className={styles.subcategory}
+                        onClick={() => {
+                          setActiveCategory('');
+                        }}
+                        key={subCategory}
+                      >
+                        <p>{subCategory}</p>
+                        <img
+                          src="images/icons/navigate_next_black_24dp.svg"
+                          alt="navigate next icon"
+                        />
+                      </Link>
+                    ))}
+                </>
+              ) : null}
+            </section>
+          ))}
+        </nav>
+      </div>
     </aside>
   );
 }
