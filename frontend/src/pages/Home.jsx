@@ -6,7 +6,7 @@ import gamesImage from '../assets/images/switch_games.jpg';
 function Home() {
   return (
     <div className={styles.container}>
-      <article>
+      <article className={styles.left}>
         <h3 className={styles.h3}>BEST ONLINE STORE OF THE YEAR</h3>
         <h2 className={styles.h2}>
           We have the best games at the lowest prices
@@ -15,7 +15,7 @@ function Home() {
           Shop now
         </Link>
       </article>
-      <img className={styles.img} src={gamesImage} alt="video games" />
+      <img className={styles.hero} src={gamesImage} alt="video games" />
     </div>
   );
 }

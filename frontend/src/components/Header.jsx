@@ -82,7 +82,11 @@ function Header() {
             key={category.main}
             className={styles.red_on_hover}
             onClick={() => {
-              setActiveCategory(category.main);
+              if (category.main === activeCategory) {
+                setActiveCategory('');
+              } else {
+                setActiveCategory(category.main);
+              }
             }}
             style={{
               color: category.main === activeCategory ? 'red' : '',

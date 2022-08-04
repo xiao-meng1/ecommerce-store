@@ -1,14 +1,15 @@
-.sticky_container {
+.sidebar {
   display: none;
-  position: sticky;
-  top: 43px;
+  position: absolute;
   left: 0;
+  height: 100%;
   z-index: 5;
   width: 70vw;
 }
 
-.sidebar {
-  position: absolute;
+.sticky_container {
+  position: sticky;
+  top: 43px;
   width: 100%;
   background-color: white;
   border-bottom: solid lightgray 0.5px;
@@ -44,11 +45,12 @@
   background-color: whitesmoke;
 }
 
+@media (max-width: 1000px) { 
+}
+
 @media (max-width: 720px) { 
-  .sticky_container {
+  .sidebar {
     display: block;
   }
 }
 
-@media (max-width: 1000px) { 
- }

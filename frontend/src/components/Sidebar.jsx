@@ -16,8 +16,8 @@ function Sidebar() {
   const [activeCategory, setActiveCategory] = useState('');
 
   return (
-    <aside className={styles.sticky_container}>
-      <div className={styles.sidebar}>
+    <aside className={styles.sidebar}>
+      <div className={styles.sticky_container}>
         <header className={styles.header}>
           <h2>Menu</h2>
         </header>

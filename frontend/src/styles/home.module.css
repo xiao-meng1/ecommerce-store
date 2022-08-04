@@ -5,32 +5,58 @@
   grid-template-columns: 30% 50%;
   justify-content: center;
   gap: 5%;
-  margin: 8% 0;
+  margin-top: 80px;
 }
 
-.img {
-  width: 100%;
-  border-radius: 50px;
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hero {
+  width: 500px;
+  border-radius: 30px;
 }
 
 .h3 {
-  font-size: 150%;
+  font-size: 20px;
 }
 
 .h2 {
-  font-size: 300%;
+  font-size: 36px;
 }
 
 .button {
   font-size: 200%;
   font-weight: 900;
-  padding: 20px 60px;
-  text-decoration: none;
+  padding: 20px 0;
+  max-width: 300px;
+  text-align: center;
   color: white;
-  background-color: black;
+  background-color: var(--red-color);
   border-radius: 100px;
 }
 
 .button:hover {
-  background-color: rgb(83, 83, 83);
+  background-color: var(--dark-red-color);
+}
+
+@media (max-width: 1000px) {
+  .hero {
+    width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 30px;
+  }
+
+  .hero {
+    width: 100%;
+  }
 }
