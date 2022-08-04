@@ -84,6 +84,9 @@ function Header() {
             onClick={() => {
               setActiveCategory(category.main);
             }}
+            style={{
+              color: category.main === activeCategory ? 'red' : '',
+            }}
           >
             {category.main}
           </button>
