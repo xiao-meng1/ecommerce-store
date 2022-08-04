@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
 import Home from './pages/Home';
 import Store from './pages/Store';
 import ProductDetail from './pages/ProductDetail';
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
 // import Overlay from './components/Overlay';
 import styles from './styles/app.module.css';
 
@@ -12,6 +13,7 @@ function App() {
     <div className={styles.app}>
       <BrowserRouter>
         <Header />
+        <Sidebar />
         <main>
           {/* <Overlay /> */}
           <Routes>

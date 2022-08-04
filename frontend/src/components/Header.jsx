@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../styles/header.module.css';
 
-const productCategories = {
-  Games: ['New Releases', 'Upcoming'],
-  Hardware: ['Controllers', 'Consoles', 'Accessories'],
-  Merchandise: ['Mugs', 'Backpacks', 'Plushies'],
-};
+const productCategories = [
+  { main: 'Games', secondary: ['New Releases', 'Upcoming'] },
+  {
+    main: 'Hardware',
+    secondary: ['Controllers', 'Consoles', 'Accessories'],
+  },
+  { main: 'Merchandise', secondary: ['Mugs', 'Backpacks', 'Plushies'] },
+];
 
 function Header() {
   // Todo: move activeCategory to Redux so Overlay component can set it to false.
-  const [activeCategory, setActiveCategory] = useState();
+  const [activeCategory, setActiveCategory] = useState('');
 
   return (
     <header className={styles.header}>
@@ -73,47 +76,42 @@ function Header() {
         </div>
       </nav>
       <nav className={styles.secondary_navbar}>
-        <button
-          type="button"
-          className={styles.red_on_hover}
-          onClick={() => {
-            setActiveCategory('Hardware');
-          }}
-        >
-          Hardware
-        </button>
-        <button
-          type="button"
-          className={styles.red_on_hover}
-          onClick={() => {
-            setActiveCategory('Games');
-          }}
-        >
-          Games
-        </button>
-        <button
-          type="button"
-          className={styles.red_on_hover}
-          onClick={() => {
-            setActiveCategory('Merchandise');
-          }}
-        >
-          Merchandise
-        </button>
+        {productCategories.map((category) => (
+          <button
+            type="button"
+            key={category.main}
+            className={styles.red_on_hover}
+            onClick={() => {
+              setActiveCategory(category.main);
+            }}
+          >
+            {category.main}
+          </button>
+        ))}
       </nav>
       {activeCategory ? (
         <nav className={styles.dropdown_navbar}>
-          {productCategories[activeCategory].map((subCategory) => (
-            <Link
-              to={`/store/${activeCategory}/${subCategory}`}
-              onClick={() => {
-                setActiveCategory();
-              }}
-              key={subCategory}
-            >
-              {subCategory}
-            </Link>
-          ))}
+          <Link
+            to={`/store/${activeCategory}`}
+            onClick={() => {
+              setActiveCategory('');
+            }}
+          >
+            {`Shop all ${activeCategory}`}
+          </Link>
+          {productCategories
+            .find((x) => x.main === activeCategory)
+            .secondary.map((subCategory) => (
+              <Link
+                to={`/store/${activeCategory}/${subCategory}`}
+                onClick={() => {
+                  setActiveCategory('');
+                }}
+                key={subCategory}
+              >
+                {subCategory}
+              </Link>
+            ))}
         </nav>
       ) : null}
     </header>
