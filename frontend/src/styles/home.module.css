@@ -16,7 +16,7 @@
 
 .hero {
   width: 500px;
-  border-radius: 30px;
+  border-radius: 10px;
 }
 
 .h3 {
@@ -52,7 +52,7 @@
   .container {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     gap: 30px;
   }
 

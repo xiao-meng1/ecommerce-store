@@ -33,7 +33,7 @@ function Header() {
             </svg>
           </button>
           <Link to="/" className={styles.logo}>
-            <h1>Video Game Store</h1>
+            <h1>Storetendo</h1>
           </Link>
         </div>
         <div className={styles.right}>
