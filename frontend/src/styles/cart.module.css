@@ -1,71 +1,84 @@
-.popup {
-  position: absolute;
-  height: 100%;
+.cart {
   width: 100%;
+  max-width: 1200px;
+  padding: 50px 20px;
 }
 
-.screenBlocker {
-  height: 100%;
-  width: 100%;
-  border: 0;
-  background-color: black;
-  opacity: 0.5;
+.cart h1 {
+  margin: 0 0 20px 0;
 }
 
-.container {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  width: 20vw;
-  padding: 30px;
-  background-color: white;
-  font-size: 20px;
-}
-
-.container > h2 {
-  text-align: center;
-  margin-top: 0;
-  font-size: 36px;
-}
-
-.container > p {
-  font-size: 24px;
-  font-weight: 700;
-  text-align: center;
-}
-
-.items {
-  height: 60vh;
-  overflow-y: scroll;
-  margin-bottom: 30px;
+.cart .flex_container {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
-.button {
-  display: block;
-  width: 100%;
-  font-size: 30px;
-  font-weight: 500;
-  padding: 10px;
-  color: black;
-  text-decoration: none;
-  border: 0;
-  border-radius: 10px;
+.items {
+  margin-bottom: 30px;
 }
 
-.button:hover {
-  opacity: 0.8;
+.order_summary {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: whitesmoke;
+  border-radius: 4px;
+  font-weight: 900;
 }
 
-.checkout {
+.order_summary h2 {
   margin-bottom: 20px;
-  cursor: pointer;
-  background-color: greenyellow;
 }
 
-.close {
-  background-color: lightcoral;
+.order_summary p {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 10px 0;
+  border-top: solid gray 0.5px;
+  font-size: 16px;
+}
+
+.order_summary p.total {
+  font-size: 18px;
+  padding-top: 30px;
+}
+
+.order_summary .checkout {
+  padding: 10px 30px;
+  margin: 20px 0;
+  border-radius: 4px;
+  font-size: 20px;
+  color: white;
+  background-color: var(--red-color);
+}
+
+.order_summary .checkout:hover {
+  transform: scale(1.05);
+  background-color: var(--dark-red-color);
+}
+
+@media (min-width: 720px) {
+}
+
+@media (min-width: 1000px) {
+  .cart .flex_container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .items {
+    flex: 1;
+  }
+
+  .cart h1 {
+    margin: 20px 0;
+  }
+
+  .order_summary {
+    margin-left: 40px;
+    top: 120px;
+    position: sticky;
+  }
 }

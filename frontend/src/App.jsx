@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Store from './pages/Store';
 import ProductDetail from './pages/ProductDetail';
+import Cart from './pages/Cart';
 import Header from './components/Header';
 // import Sidebar from './components/Sidebar';
 // import Overlay from './components/Overlay';
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/store/*" element={<Store />} />
             <Route path="/product" element={<ProductDetail />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
         </main>
       </BrowserRouter>

@@ -1,8 +1,7 @@
 .container {
   width: 80%;
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-columns: 30% 50%;
+  max-width: 1000px;
+  display: flex;
   justify-content: center;
   gap: 5%;
   margin-top: 80px;
@@ -16,6 +15,8 @@
 
 .hero {
   width: 500px;
+  max-width: 600px;
+  margin-bottom: 30px;
   height: auto;
   border-radius: 10px;
 }
@@ -44,12 +45,6 @@
 }
 
 @media (max-width: 1000px) {
-  .hero {
-    width: 100%;
-  }
-}
-
-@media (max-width: 720px) {
   .container {
     display: flex;
     flex-direction: column;
@@ -60,4 +55,8 @@
   .hero {
     width: 100%;
   }
+}
+
+@media (max-width: 720px) {
+
 }

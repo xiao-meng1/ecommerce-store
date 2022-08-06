@@ -32,7 +32,7 @@
   height: 100%;
 }
 
-.left h1 {
+.left .logo_text {
   margin: 0;
   padding: 0 6px;
   font-size: 16px;
@@ -121,7 +121,7 @@
     display: none;
   }
 
-  .left h1 {
+  .left .logo_text {
     font-size: 3vw;
   }
 

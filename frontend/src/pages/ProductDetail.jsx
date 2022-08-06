@@ -1,4 +1,5 @@
 import React from 'react';
+import QuantitySelector from '../components/QuantitySelector';
 import styles from '../styles/productDetail.module.css';
 
 function ProductDetail() {
@@ -18,13 +19,7 @@ function ProductDetail() {
             <p>Mario 10 inch Plush</p>
             <p>$12.99</p>
             <div className={styles.cart_controls}>
-              <div className={styles.quantity_container}>
-                <button type="button" disabled>
-                  &#8211;
-                </button>
-                <span className={styles.quantity}>1</span>
-                <button type="button">+</button>
-              </div>
+              <QuantitySelector />
               <button type="submit" className={styles.add_to_cart}>
                 Add to cart
               </button>

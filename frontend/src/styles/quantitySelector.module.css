@@ -1,0 +1,30 @@
+.quantity_selector {
+  width: 154px;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  border: solid gray 0.5px;
+  border-radius: 4px;
+}
+
+.quantity_selector button {
+  font-size: 26px;
+  font-weight: 900;
+  width: 50px;
+  height: 100%;
+}
+
+.quantity_selector button:hover {
+  background-color: whitesmoke;
+}
+
+.quantity_selector button:disabled:hover {
+  background-color: white;
+  cursor: not-allowed;
+}
+
+.quantity_selector .quantity {
+  font-size: 20px;
+  font-weight: 900;
+  padding: 0 20px;
+}
