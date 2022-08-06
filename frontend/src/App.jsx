@@ -18,7 +18,7 @@ function App() {
           {/* <Overlay /> */}
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/store" element={<Store />} />
+            <Route path="/store/*" element={<Store />} />
             <Route path="/product" element={<ProductDetail />} />
           </Routes>
         </main>

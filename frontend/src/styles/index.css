@@ -39,3 +39,12 @@ h1, h2, h3, h4, h5, h6, p {
 img {
   object-fit: contain;
 }
+
+input {
+  background: none;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
