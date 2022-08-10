@@ -1,8 +1,9 @@
 const async = require('async');
+const mongoose = require('mongoose');
 const Product = require('../models/product');
 
 exports.getProducts = (req, res, next) => {
-  // Expected query string format: hostname/products?category=param&subcategory=param&id=1&id=2&id=3
+  // Expected query string format: category=param&subcategory=param&id=1&id=2&id=3
   const { id, category, subcategory } = req.query;
 
   if (id) {
@@ -74,5 +75,24 @@ exports.getProductById = (req, res, next) => {
       return next(err);
     }
     res.json(result);
+  });
+};
+
+exports.getProductImageById = (req, res, next) => {
+  const { id } = req.params;
+  const bucket = new mongoose.mongo.GridFSBucket(mongoose.connection, {
+    bucketName: 'product_images',
+  });
+
+  bucket.find({ _id: mongoose.Types.ObjectId(id) }).toArray((err, files) => {
+    if (err) {
+      return next(err);
+    }
+    if (!files[0] || files.length === 0) {
+      const err = new Error('No file found');
+      err.status = 404;
+      return next(err);
+    }
+    bucket.openDownloadStream(mongoose.Types.ObjectId(id)).pipe(res);
   });
 };

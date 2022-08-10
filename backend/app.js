@@ -13,7 +13,7 @@ const checkoutRouter = require('./routes/checkoutRouter');
 const app = express();
 
 //Mongoose connection
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(`${process.env.MONGODB_URI}/store_data_test`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
