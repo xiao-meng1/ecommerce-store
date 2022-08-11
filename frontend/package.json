@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@jest/console": "^28.1.1",
+    "@reduxjs/toolkit": "^1.8.4",
     "@testing-library/dom": "^8.13.0",
     "core-js-pure": "^3.23.1",
     "gh-pages": "^4.0.0",
@@ -11,6 +12,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "stripe": "^9.16.0",
