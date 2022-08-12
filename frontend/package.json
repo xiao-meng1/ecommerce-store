@@ -6,6 +6,7 @@
     "@jest/console": "^28.1.1",
     "@reduxjs/toolkit": "^1.8.4",
     "@testing-library/dom": "^8.13.0",
+    "axios": "^0.27.2",
     "core-js-pure": "^3.23.1",
     "gh-pages": "^4.0.0",
     "jest": "^28.1.1",
@@ -56,6 +57,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-redux": "^4.0.0",
     "jest-preview": "^0.2.4",
     "latest": "^0.2.0",
     "node": "^17.7.2"
