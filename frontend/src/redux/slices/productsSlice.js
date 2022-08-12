@@ -3,7 +3,7 @@ import fetchProducts from '../thunks/fetchProducts';
 import fetchProductById from '../thunks/fetchProductById';
 import fetchProductImageById from '../thunks/fetchProductImageById';
 
-export default createSlice({
+export const productSlice = createSlice({
   name: 'products',
   initialState: {},
   reducers: {},
@@ -46,3 +46,5 @@ export default createSlice({
 });
 
 export const selectProducts = (state) => state.products.entities;
+
+export default productSlice.reducer;
