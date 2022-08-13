@@ -99,7 +99,7 @@ function Header() {
       {activeCategory ? (
         <nav className={styles.dropdown_navbar}>
           <Link
-            to={`/store/${activeCategory}`}
+            to={`/store?category=${activeCategory}`}
             onClick={() => {
               setActiveCategory('');
             }}
@@ -110,7 +110,7 @@ function Header() {
             .find((x) => x.main === activeCategory)
             .secondary.map((subCategory) => (
               <Link
-                to={`/store/${activeCategory}/${subCategory}`}
+                to={`/store?category=${activeCategory}&subcategory=${subCategory}`}
                 onClick={() => {
                   setActiveCategory('');
                 }}

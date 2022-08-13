@@ -1,34 +1,44 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
+import styles from '../styles/store.module.css';
 
 import StoreCard from '../components/StoreCard';
-import fetchProductImageById from '../redux/thunks/fetchProductImageById';
-import styles from '../styles/store.module.css';
-import productData from '../data/products.json';
-import fetchProductById from '../redux/thunks/fetchProductById';
+import {
+  selectProducts,
+  selectProductsIsIdle,
+} from '../redux/slices/productsSlice';
+import fetchProducts from '../redux/thunks/fetchProducts';
 
 function Store() {
+  const products = useSelector(selectProducts);
+  const productsIsIdle = useSelector(selectProductsIsIdle);
   const dispatch = useDispatch();
+  const [searchParams] = useSearchParams();
+
+  let productIds = [];
 
   useEffect(() => {
-    dispatch(fetchProductById('62e85971695d3d2ea457daf7'));
-    dispatch(
-      fetchProductImageById({
-        productId: '62e85971695d3d2ea457daf7',
-        imageId: '62e85971695d3d2ea457daea',
-      })
-    );
-  });
+    const category = searchParams.get('category');
+    const subcategory = searchParams.get('subcategory');
+
+    if (subcategory && category) {
+      dispatch(fetchProducts({ category, subcategory }));
+    } else if (category) {
+      dispatch(fetchProducts({ category }));
+    } else {
+      dispatch(fetchProducts());
+    }
+  }, [searchParams]);
+
+  if (productsIsIdle) {
+    productIds = Object.keys(products);
+  }
 
   return (
     <div className={styles.container}>
-      {productData.map((item) => (
-        <StoreCard
-          title={item.title}
-          key={item.title}
-          price={item.price}
-          fileName={item.fileName}
-        />
+      {productIds.map((id) => (
+        <StoreCard key={id} id={id} />
       ))}
     </div>
   );

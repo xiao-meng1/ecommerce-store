@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
 import fetchProducts from '../thunks/fetchProducts';
 import fetchProductById from '../thunks/fetchProductById';
 import fetchProductImageById from '../thunks/fetchProductImageById';
@@ -12,6 +12,9 @@ export const productSlice = createSlice({
       .addCase(fetchProducts.pending, (state) => {
         state.isIdle = false;
       })
+      .addCase(fetchProducts.rejected, (state) => {
+        state.isIdle = true;
+      })
       .addCase(fetchProducts.fulfilled, (state, action) => {
         const newEntities = {};
 
@@ -24,6 +27,9 @@ export const productSlice = createSlice({
       .addCase(fetchProductById.pending, (state) => {
         state.isIdle = false;
       })
+      .addCase(fetchProductById.rejected, (state) => {
+        state.isIdle = true;
+      })
       .addCase(fetchProductById.fulfilled, (state, action) => {
         const newEntities = {};
         const product = action.payload;
@@ -34,6 +40,9 @@ export const productSlice = createSlice({
       })
       .addCase(fetchProductImageById.pending, (state) => {
         state.isIdle = false;
+      })
+      .addCase(fetchProductImageById.rejected, (state) => {
+        state.isIdle = true;
       })
       .addCase(fetchProductImageById.fulfilled, (state, action) => {
         const item = action.payload;
@@ -46,5 +55,10 @@ export const productSlice = createSlice({
 });
 
 export const selectProducts = (state) => state.products.entities;
+
+export const selectProductById = (id) =>
+  createSelector(selectProducts, (products) => products[id]);
+
+export const selectProductsIsIdle = (state) => state.products.isIdle;
 
 export default productSlice.reducer;

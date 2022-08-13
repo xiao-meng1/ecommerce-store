@@ -51,7 +51,7 @@ function Sidebar() {
               {activeCategory === category.main ? (
                 <>
                   <Link
-                    to={`/store/${activeCategory}`}
+                    to={`/store?category=${activeCategory}`}
                     className={styles.subcategory}
                     onClick={() => {
                       setActiveCategory('');
@@ -67,7 +67,7 @@ function Sidebar() {
                     .find((x) => x.main === activeCategory)
                     .secondary.map((subCategory) => (
                       <Link
-                        to={`/store/${activeCategory}/${subCategory}`}
+                        to={`/store?category=${activeCategory}&subcategory=${subCategory}`}
                         className={styles.subcategory}
                         onClick={() => {
                           setActiveCategory('');
