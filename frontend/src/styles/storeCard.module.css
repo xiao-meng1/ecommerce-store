@@ -18,6 +18,7 @@
   color: var(--red-color);
 }
 
+.img_container,
 .img {
   height: 110px;
   width: 220px;
@@ -63,6 +64,7 @@
 
 @media (max-width: 720px) {
   .article,
+  .img_container,
   .img {
     width: 40vw;
     min-width: 142px;
@@ -74,6 +76,7 @@
     margin-bottom: 10px;
   }
 
+  .img_container,
   .img {
     height: 20vw;
     min-height: 71px;

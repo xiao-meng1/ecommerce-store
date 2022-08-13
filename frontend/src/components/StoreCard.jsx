@@ -8,7 +8,6 @@ import { selectProductById } from '../redux/slices/productsSlice';
 import styles from '../styles/storeCard.module.css';
 
 function StoreCard(props) {
-  // guarenteed to get rendered with its id
   const { id } = props;
   const product = useSelector(selectProductById(id));
   const title = product.name;
@@ -29,11 +28,15 @@ function StoreCard(props) {
   return (
     <Link to="/product" className={styles.link_container}>
       <article className={styles.article} data-testid="card">
-        <img
-          src={responseImg ? URL.createObjectURL(responseImg) : null}
-          alt={title}
-          className={styles.img}
-        />
+        <div className={styles.img_container}>
+          {responseImg ? (
+            <img
+              src={responseImg ? URL.createObjectURL(responseImg) : null}
+              alt={title}
+              className={styles.img}
+            />
+          ) : null}
+        </div>
         <section className={styles.metadata}>
           <h2 className={styles.h2}>{title}</h2>
           <p className={styles.p}>{`$${price}`}</p>
