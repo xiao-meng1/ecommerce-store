@@ -1,23 +1,58 @@
-import React from 'react';
-import QuantitySelector from '../components/QuantitySelector';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import styles from '../styles/productDetail.module.css';
 
+import QuantitySelector from '../components/QuantitySelector';
+import {
+  selectProductById,
+  selectProductsIsIdle,
+} from '../redux/slices/productsSlice';
+import fetchProductById from '../redux/thunks/fetchProductById';
+
 function ProductDetail() {
+  const params = useParams();
+  const dispatch = useDispatch();
+  const [responseImg, setResponseImg] = useState(null);
+  const productsIsIdle = useSelector(selectProductsIsIdle);
+  const product = useSelector(selectProductById(params.id));
+
+  useEffect(() => {
+    dispatch(fetchProductById(params.id));
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      if (productsIsIdle) {
+        const uri = `${process.env.REACT_APP_BACKEND_ORIGIN}/products/image/${product['image file']}`;
+        const response = await axios.get(uri, { responseType: 'blob' });
+
+        setResponseImg(response.data);
+      }
+    })();
+  }, [productsIsIdle]);
+
   return (
     <>
       <section className={styles.top_container}>
         <p className={styles.route}>
-          Product Name Store &#62; Games &#62; <strong>Product Name</strong>
+          Store &#62; {product.category} &#62; {product.subcategory} &#62;{' '}
+          <strong>{product.name}</strong>
         </p>
         <div className={styles.flex_container}>
-          <img
-            className={styles.product}
-            src="images/animal-crossing-new-horizons-cover.webp"
-            alt="product"
-          />
+          <div className={styles.img_container}>
+            {responseImg ? (
+              <img
+                className={styles.product}
+                src={responseImg ? URL.createObjectURL(responseImg) : null}
+                alt="product"
+              />
+            ) : null}
+          </div>
           <div className={styles.product_info}>
-            <p>Mario 10 inch Plush</p>
-            <p>$12.99</p>
+            <p>{product.name}</p>
+            <p>${product['MSRP (CAD in cents)'] / 100}</p>
             <div className={styles.cart_controls}>
               <QuantitySelector />
               <button type="submit" className={styles.add_to_cart}>
@@ -28,22 +63,16 @@ function ProductDetail() {
         </div>
       </section>
       <section className={styles.bottom_container}>
-        <p className={styles.description}>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industrys standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
-        </p>
-        <img
-          className={styles.product}
-          src="images/animal-crossing-new-horizons-cover.webp"
-          alt="product"
-        />
+        <p className={styles.description}>{product.description}</p>
+        <div className={styles.img_container}>
+          {responseImg ? (
+            <img
+              className={styles.product}
+              src={responseImg ? URL.createObjectURL(responseImg) : null}
+              alt="product"
+            />
+          ) : null}
+        </div>
       </section>
       <div className={styles.hero_backdrop} />
     </>

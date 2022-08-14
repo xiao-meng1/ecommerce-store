@@ -15,9 +15,9 @@
   font-size: 14px;
 }
 
+.img_container,
 img.product {
   height: 60vw;
-  width: 100vw;
   max-width: 100%;
   object-fit: contain;
   object-position: center;
@@ -72,6 +72,7 @@ img.product {
 }
 
 @media (min-width: 720px) {
+  .img_container,
   img.product {
     max-height: 600px;
   }
@@ -112,11 +113,12 @@ img.product {
     width: 400px;
   }
 
+  .img_container,
   img.product {
     height: 20vw;
     max-height: none;
     width: 30vw;
-    max-width: 600px;
+    max-width: 100%;
     max-height: 400px;
   }
 }

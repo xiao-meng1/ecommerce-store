@@ -10,15 +10,11 @@ import styles from '../styles/storeCard.module.css';
 function StoreCard(props) {
   const { id } = props;
   const product = useSelector(selectProductById(id));
-  const title = product.name;
-  const price = product['MSRP (CAD in cents)'] / 100;
-  const imageId = product['image file'];
-
   const [responseImg, setResponseImg] = useState(null);
 
   useEffect(() => {
     (async () => {
-      const uri = `${process.env.REACT_APP_BACKEND_ORIGIN}/products/image/${imageId}`;
+      const uri = `${process.env.REACT_APP_BACKEND_ORIGIN}/products/image/${product['image file']}`;
       const response = await axios.get(uri, { responseType: 'blob' });
 
       setResponseImg(response.data);
@@ -26,20 +22,22 @@ function StoreCard(props) {
   }, []);
 
   return (
-    <Link to="/product" className={styles.link_container}>
+    <Link to={`/product/${id}`} className={styles.link_container}>
       <article className={styles.article} data-testid="card">
         <div className={styles.img_container}>
           {responseImg ? (
             <img
               src={responseImg ? URL.createObjectURL(responseImg) : null}
-              alt={title}
+              alt={product.name}
               className={styles.img}
             />
           ) : null}
         </div>
         <section className={styles.metadata}>
-          <h2 className={styles.h2}>{title}</h2>
-          <p className={styles.p}>{`$${price}`}</p>
+          <h2 className={styles.h2}>{product.name}</h2>
+          <p className={styles.p}>{`$${
+            product['MSRP (CAD in cents)'] / 100
+          }`}</p>
         </section>
       </article>
     </Link>
