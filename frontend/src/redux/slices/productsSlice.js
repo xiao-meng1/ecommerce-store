@@ -5,7 +5,7 @@ import fetchProductImageById from '../thunks/fetchProductImageById';
 
 export const productSlice = createSlice({
   name: 'products',
-  initialState: {},
+  initialState: { isIdle: true, entities: {} },
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -57,7 +57,9 @@ export const productSlice = createSlice({
 export const selectProducts = (state) => state.products.entities;
 
 export const selectProductById = (id) =>
-  createSelector(selectProducts, (products) => products[id]);
+  createSelector(selectProducts, (products) =>
+    Object.keys(products).find((key) => key === id) ? products[id] : null
+  );
 
 export const selectProductsIsIdle = (state) => state.products.isIdle;
 

@@ -5,18 +5,24 @@ import axios from 'axios';
 import styles from '../styles/productDetail.module.css';
 
 import QuantitySelector from '../components/QuantitySelector';
+import { selectProductById } from '../redux/slices/productsSlice';
 import {
-  selectProductById,
-  selectProductsIsIdle,
-} from '../redux/slices/productsSlice';
+  addItem,
+  incrementItemQuantityByAmount,
+  selectCartItemById,
+} from '../redux/slices/cartSlice';
 import fetchProductById from '../redux/thunks/fetchProductById';
 
 function ProductDetail() {
   const params = useParams();
   const dispatch = useDispatch();
+
   const [responseImg, setResponseImg] = useState(null);
-  const productsIsIdle = useSelector(selectProductsIsIdle);
   const product = useSelector(selectProductById(params.id));
+  const itemInCart = useSelector(
+    selectCartItemById(product ? product._id : '')
+  );
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     dispatch(fetchProductById(params.id));
@@ -24,14 +30,28 @@ function ProductDetail() {
 
   useEffect(() => {
     (async () => {
-      if (productsIsIdle) {
+      if (product) {
         const uri = `${process.env.REACT_APP_BACKEND_ORIGIN}/products/image/${product['image file']}`;
         const response = await axios.get(uri, { responseType: 'blob' });
 
         setResponseImg(response.data);
       }
     })();
-  }, [productsIsIdle]);
+  }, [product]);
+
+  const handleAddToCart = () => {
+    if (itemInCart) {
+      dispatch(
+        incrementItemQuantityByAmount({ id: product._id, amount: quantity })
+      );
+    } else {
+      dispatch(addItem({ id: product._id, quantity }));
+    }
+  };
+
+  if (!product) {
+    return <div />;
+  }
 
   return (
     <>
@@ -53,12 +73,23 @@ function ProductDetail() {
           <div className={styles.product_info}>
             <p>{product.name}</p>
             <p>${product['MSRP (CAD in cents)'] / 100}</p>
-            <div className={styles.cart_controls}>
-              <QuantitySelector />
-              <button type="submit" className={styles.add_to_cart}>
-                Add to cart
-              </button>
-            </div>
+            {product ? (
+              <div className={styles.cart_controls}>
+                <QuantitySelector
+                  quantity={quantity}
+                  setQuantity={setQuantity}
+                  productStock={product.stock}
+                />
+
+                <button
+                  type="submit"
+                  className={styles.add_to_cart}
+                  onClick={handleAddToCart}
+                >
+                  Add to cart
+                </button>
+              </div>
+            ) : null}
           </div>
         </div>
       </section>
