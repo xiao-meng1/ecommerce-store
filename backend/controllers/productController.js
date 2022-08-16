@@ -12,7 +12,7 @@ exports.getProducts = (req, res, next) => {
         if (err) {
           callback(err);
         } else {
-          callback(null, { queryId: productId, product: result });
+          callback(null, result);
         }
       });
     };

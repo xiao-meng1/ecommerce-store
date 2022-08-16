@@ -8,10 +8,16 @@ export default createAsyncThunk(
     let queryString = '';
 
     if (queryKeys.length !== 0) {
-      queryString = queryKeys.reduce(
-        (final, key) => `${final}${key}=${query[key]}&`,
-        '?'
-      );
+      queryString = queryKeys.reduce((finalQuery, key) => {
+        if (key === 'ids') {
+          return query.ids.reduce(
+            (subquery, id) => `${subquery}id=${id}&`,
+            finalQuery
+          );
+        }
+
+        return `${finalQuery}${key}=${query[key]}&`;
+      }, '?');
       queryString = queryString.slice(0, -1);
     }
 

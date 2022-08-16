@@ -12,6 +12,10 @@
   gap: 10px;
 }
 
+.left_container .product_name {
+  flex: 1;
+}
+
 .right_container {
   display: grid;
   grid-template-columns: auto auto;
@@ -37,11 +41,14 @@
   text-decoration: underline;
 }
 
+.img_container,
 .img {
   height: 100px;
   width: 160px;
   border: solid lightgray 0.5px;
   border-radius: 4px;
+  object-fit: contain;
+  object-position: center;
 }
 
 @media (min-width: 720px) {

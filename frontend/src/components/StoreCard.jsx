@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import styles from '../styles/storeCard.module.css';
 
 import { selectProductById } from '../redux/slices/productsSlice';
-import styles from '../styles/storeCard.module.css';
 
 function StoreCard(props) {
   const { id } = props;
@@ -27,7 +27,7 @@ function StoreCard(props) {
         <div className={styles.img_container}>
           {responseImg ? (
             <img
-              src={responseImg ? URL.createObjectURL(responseImg) : null}
+              src={URL.createObjectURL(responseImg)}
               alt={product.name}
               className={styles.img}
             />
