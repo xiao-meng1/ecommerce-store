@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import axios from 'axios';
 import styles from '../styles/cart.module.css';
 
 import CartItem from '../components/CartItem';
@@ -24,6 +25,30 @@ function Cart() {
     );
 
     return priceInCents / 100;
+  };
+
+  const handleCheckout = async (e) => {
+    e.preventDefault();
+
+    if (!products) return;
+
+    const postData = cartItems.map((item) => ({
+      quantity: item.quantity,
+      price: products[item.id]['Stripe Price ID'],
+    }));
+    const response = await axios.post(
+      `${process.env.REACT_APP_BACKEND_ORIGIN}/checkout/create-checkout-session`,
+      {
+        items: postData,
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+
+    window.location.href = response.data.url;
   };
 
   useEffect(() => {
@@ -56,11 +81,7 @@ function Cart() {
           ))}
         </section>
         {!newProductsLoaded ? null : (
-          <form
-            className={styles.order_summary}
-            action={`${process.env.REACT_APP_BACKEND_ORIGIN}/checkout/create-checkout-session`}
-            method="POST"
-          >
+          <form className={styles.order_summary} onSubmit={handleCheckout}>
             <h2>Order summary</h2>
             <p>
               <span>Item&#40;s&#41; summary</span>

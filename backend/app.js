@@ -31,9 +31,10 @@ app.use(cookieParser());
 // CORS
 app.use(
   cors({
-    origin: process.env.FRONTEND_ORIGIN || false,
+    origin: [process.env.FRONTEND_ORIGIN, 'http://checkout.stripe.com'],
   })
 );
+// app.use(cors());
 
 // routers
 app.use('/products', productRouter);
