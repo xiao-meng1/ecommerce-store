@@ -1,6 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from '../styles/header.module.css';
+
+import { selectCartItems } from '../redux/slices/cartSlice';
+import {
+  toggleOverlayOn,
+  toggleOverlayOff,
+  selectOverlayIsActive,
+} from '../redux/slices/overlaySlice';
 
 const productCategories = [
   { main: 'Games', secondary: ['New Releases', 'Upcoming'] },
@@ -12,14 +20,43 @@ const productCategories = [
 ];
 
 function Header() {
-  // Todo: move activeCategory to Redux so Overlay component can set it to false.
+  const cartItems = useSelector(selectCartItems);
+  const overlayIsActive = useSelector(selectOverlayIsActive);
   const [activeCategory, setActiveCategory] = useState('');
+  const dispatch = useDispatch();
+
+  const calculateTotalQuantity = () => {
+    const totalQuantity = cartItems.reduce(
+      (total, item) => total + item.quantity,
+      0
+    );
+
+    return totalQuantity;
+  };
+
+  const handleHamburgerClick = () => {
+    if (overlayIsActive) {
+      dispatch(toggleOverlayOff());
+    } else {
+      dispatch(toggleOverlayOn());
+    }
+  };
+
+  useEffect(() => {
+    if (!overlayIsActive) {
+      setActiveCategory('');
+    }
+  });
 
   return (
     <header className={styles.header}>
       <nav className={styles.main_navbar}>
         <div className={styles.left}>
-          <button type="button" className={styles.red_on_hover}>
+          <button
+            type="button"
+            className={styles.red_on_hover}
+            onClick={handleHamburgerClick}
+          >
             <svg
               className={styles.icon}
               xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +96,10 @@ function Header() {
             </svg>
             <p className={styles.md_block}>Store</p>
           </Link>
-          <Link to="cart" className={styles.red_on_hover}>
+          <Link
+            to="cart"
+            className={`${styles.cart_container} ${styles.red_on_hover}`}
+          >
             <svg
               className={styles.icon}
               xmlns="http://www.w3.org/2000/svg"
@@ -71,6 +111,11 @@ function Header() {
               <path d="M0 0h24v24H0V0z" fill="none" />
               <path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
             </svg>
+            {cartItems.length === 0 ? null : (
+              <div className={styles.cart_quantity}>
+                {calculateTotalQuantity()}
+              </div>
+            )}
             <p className={styles.md_block}>Cart</p>
           </Link>
         </div>
@@ -84,8 +129,10 @@ function Header() {
             onClick={() => {
               if (category.main === activeCategory) {
                 setActiveCategory('');
+                dispatch(toggleOverlayOff());
               } else {
                 setActiveCategory(category.main);
+                dispatch(toggleOverlayOn());
               }
             }}
             style={{
@@ -102,6 +149,7 @@ function Header() {
             to={`/store?category=${activeCategory}`}
             onClick={() => {
               setActiveCategory('');
+              dispatch(toggleOverlayOff());
             }}
           >
             {`Shop all ${activeCategory}`}
@@ -113,6 +161,7 @@ function Header() {
                 to={`/store?category=${activeCategory}&subcategory=${subCategory}`}
                 onClick={() => {
                   setActiveCategory('');
+                  dispatch(toggleOverlayOff());
                 }}
                 key={subCategory}
               >

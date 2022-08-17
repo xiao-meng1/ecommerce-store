@@ -57,6 +57,24 @@
   text-decoration: none;
 }
 
+.right .cart_container {
+  position: relative;
+}
+
+.right .cart_quantity {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  background-color: var(--red-color);
+  color: white;
+  height: 16px;
+  width: 16px;
+  font-size: 14px;
+  font-weight: 900;
+  border-radius: 10px;
+  text-align: center;
+}
+
 .secondary_navbar {
   display: flex;
   justify-content: center;

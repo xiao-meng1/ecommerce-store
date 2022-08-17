@@ -41,6 +41,8 @@ function ProductDetail() {
 
   const handleAddToCart = () => {
     if (itemInCart) {
+      if (itemInCart.quantity + quantity > product.stock) return;
+
       dispatch(
         incrementItemQuantityByAmount({ id: product._id, amount: quantity })
       );

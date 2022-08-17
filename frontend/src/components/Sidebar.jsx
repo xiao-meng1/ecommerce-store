@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from '../styles/sidebar.module.css';
+
+import {
+  selectOverlayIsActive,
+  toggleOverlayOff,
+} from '../redux/slices/overlaySlice';
 
 const productCategories = [
   { main: 'Games', secondary: ['New Releases', 'Upcoming'] },
@@ -12,8 +18,14 @@ const productCategories = [
 ];
 
 function Sidebar() {
-  // Todo: move activeCategory to Redux so Overlay component can set it to false.
+  const overlayIsActive = useSelector(selectOverlayIsActive);
+  const dispatch = useDispatch();
+
   const [activeCategory, setActiveCategory] = useState('');
+
+  if (!overlayIsActive) {
+    return null;
+  }
 
   return (
     <aside className={styles.sidebar}>
@@ -55,6 +67,7 @@ function Sidebar() {
                     className={styles.subcategory}
                     onClick={() => {
                       setActiveCategory('');
+                      dispatch(toggleOverlayOff());
                     }}
                   >
                     <p>{`Shop all ${activeCategory}`}</p>
@@ -71,6 +84,7 @@ function Sidebar() {
                         className={styles.subcategory}
                         onClick={() => {
                           setActiveCategory('');
+                          dispatch(toggleOverlayOff());
                         }}
                         key={subCategory}
                       >
