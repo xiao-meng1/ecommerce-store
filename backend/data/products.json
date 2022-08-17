@@ -9,12 +9,30 @@
     "stock": 10
   },
   {
+    "name": "Mario Strikers: Battle League",
+    "category": "Games",
+    "subcategory": "New Releases",
+    "description": "Tackle, pass, and score in this action-packed sport where anything goes! Introducing Strike, a 5-on-5, soccer-like sport with no rules—do whatever it takes to win! Get gritty and try to score the most goals by tackling enemies, using items, and pulling off score-boosting Hyper Strikes.",
+    "MSRP (CAD in cents)": 7999,
+    "image file": "114536-switch-mario-strikers-battle-league-1200x675.jpg",
+    "stock": 10
+  },
+  {
     "name": "Kirby's Dream Buffet",
     "category": "Games",
     "subcategory": "Upcoming",
     "description": "Roll through a smorgasbord of food-themed stages in 4 rounds of 4-player* fun as Kirby…who seems rounder than usual? Race through delicious obstacle courses to collect strawberries as Kirby grows. Then, turn the tides in the final round—a fruity fight atop a floating platform.",
     "MSRP (CAD in cents)": 6999,
     "image file": "kirbys-dream-bullet.jpg",
+    "stock": 10
+  },
+  {
+    "name": "Splatoon 3",
+    "category": "Games",
+    "subcategory": "Upcoming",
+    "description": "Enter the Splatlands, a sun-scorched desert inhabited by battle-hardened Inklings and Octolings. Splatsville, the city of chaos, is the adrenaline-fueled heart of this dusty wasteland.",
+    "MSRP (CAD in cents)": 7999,
+    "image file": "splatoon3.jpg",
     "stock": 10
   },
   {
@@ -32,8 +50,17 @@
     "subcategory": "Consoles",
     "description": "Introducing the newest member of the Nintendo Switch family Play at home on the TV or on-the-go with a vibrant 7-inch OLED screen with the Nintendo Switch system - OLED model.",
     "MSRP (CAD in cents)": 44999,
-    "image file": "114560-nintendo-switch-xenoblade-chron-3-1200x675.jpg",
-    "stock": 10
+    "image file": "115461-switch-oled-white-boxart-1200x675.jpg",
+    "stock": 30
+  },
+  {
+    "name": "Nintendo Switch Lite - Turquoise",
+    "category": "Hardware",
+    "subcategory": "Consoles",
+    "description": "Nintendo Switch Lite is a small and light Nintendo Switch system at a great price. With a built-in +Control Pad, and a sleek, unibody design, Nintendo Switch Lite is great for on-the-go gaming. Nintendo Switch Lite is compatible with popular games such as Super Mario Odyssey, Mario Kart 8 Deluxe, Super Smash Bros. Ultimate, The Legend of Zelda: Breath of the Wild, and more. If you’re looking for a gaming system all your own, Nintendo Switch Lite is ready to hit the road whenever you are.",
+    "MSRP (CAD in cents)": 19999,
+    "image file": "110663-nintendo-switch-lite-turquoise-package-1200x675.jpg",
+    "stock": 30
   },
   {
     "name": "Joy-Con Set (L+R) - Neon Pink/Neon Green",
@@ -45,13 +72,22 @@
     "stock": 30
   },
   {
+    "name": "Pro Controller",
+    "category": "Hardware",
+    "subcategory": "Controllers",
+    "description": "Take your game sessions up a notch with the Pro Controller for Nintendo Switch. Includes motion controls, HD rumble, built-in amiibo functionality, and more.",
+    "MSRP (CAD in cents)": 7999,
+    "image file": "104888-nintendo-switch-pro-controller-black-front-1200x675.jpg",
+    "stock": 30
+  },
+  {
     "name": "Nintendo Switch Carrying Case & Screen Protector",
     "category": "Hardware",
     "subcategory": "Accessories",
     "description": "Help protect your Nintendo Switch system when you’re on the go with the Nintendo Switch Carrying Case & Screen Protector.",
     "MSRP (CAD in cents)": 2499,
     "image file": "114296-switch-carrying-case-black_silver-front-1200x675.jpg",
-    "stock": 30
+    "stock": 5
   },
   {
     "name": "Animal Crossing - Nintendo Switch Mini Backpack - Teal Leaves",
@@ -72,12 +108,30 @@
     "stock": 5
   },
   {
+    "name": "Mushroom Kingdom Collection - Yoshi & Shy Guy Mug",
+    "category": "Merchandise",
+    "subcategory": "Mugs",
+    "description": "Enjoy your morning coffee, evening tea, or anytime noms with this delightful mug featuring Yoshi and a Shy Guy who is about to embark on an egg-citing adventure.",
+    "MSRP (CAD in cents)": 2499,
+    "image file": "116550-mushroom-kingdom-mug-yoshi-eggs-orange-1-1200x675.jpg",
+    "stock": 5
+  },
+  {
     "name": "Mario 10 inch Plush",
     "category": "Merchandise",
     "subcategory": "Plushies",
     "description": "Bring home a soft & cuddly, officially licensed Super Mario 10 inch plush toy.",
     "MSRP (CAD in cents)": 1699,
     "image file": "107362-little-buddy-mario-plush-mario-10-inch-1200x675.jpg",
+    "stock": 5
+  },
+  {
+    "name": "Bowser 10 inch Plush",
+    "category": "Merchandise",
+    "subcategory": "Plushies",
+    "description": "Usually a fire-breathing, hammer-throwing rival; this officially licensed Bowser 10 inch plush toy is soft & cuddly.",
+    "MSRP (CAD in cents)": 2495,
+    "image file": "107367-little-buddy-plush-bowser-10-inch-1200x675.jpg",
     "stock": 5
   }
 ]
