@@ -12,6 +12,7 @@ import {
   selectCartItemById,
 } from '../redux/slices/cartSlice';
 import fetchProductById from '../redux/thunks/fetchProductById';
+import useTestApiConnection from '../hooks/useTestApiConnection';
 
 function ProductDetail() {
   const params = useParams();
@@ -23,10 +24,13 @@ function ProductDetail() {
     selectCartItemById(product ? product._id : '')
   );
   const [quantity, setQuantity] = useState(1);
+  const apiIsConnected = useTestApiConnection();
 
   useEffect(() => {
+    if (!apiIsConnected) return;
+
     dispatch(fetchProductById(params.id));
-  }, []);
+  }, [apiIsConnected]);
 
   useEffect(() => {
     (async () => {
@@ -50,6 +54,10 @@ function ProductDetail() {
       dispatch(addItem({ id: product._id, quantity }));
     }
   };
+
+  if (!apiIsConnected) {
+    return <div className={styles.loading}>Waiting for API...</div>;
+  }
 
   if (!product) {
     return <div />;

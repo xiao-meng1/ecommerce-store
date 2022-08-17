@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from '../styles/home.module.css';
+
+import { selectApiIsConnected } from '../redux/slices/apiSlice';
+import testApiConnection from '../redux/thunks/testApiConnection';
 import gamesImage from '../assets/images/switch_games.jpg';
 
 function Home() {
+  const dispatch = useDispatch();
+  const apiIsConnected = useSelector(selectApiIsConnected);
+
+  useEffect(() => {
+    if (!apiIsConnected) {
+      dispatch(testApiConnection());
+    }
+  }, []);
+
   return (
     <div className={styles.container}>
       <article className={styles.left}>

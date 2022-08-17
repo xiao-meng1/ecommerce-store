@@ -6,6 +6,11 @@
   gap: 20px;
 }
 
+.loading {
+  font-size: 20px;
+  margin-top: 100px;
+}
+
 @media (max-width: 1000px) {
   .container {
     grid-template-columns: repeat(3, auto);

@@ -9,6 +9,7 @@ const cors = require('cors');
 
 const productRouter = require('./routes/productRouter');
 const checkoutRouter = require('./routes/checkoutRouter');
+const apiRouter = require('./routes/apiRouter');
 
 const app = express();
 
@@ -34,11 +35,11 @@ app.use(
     origin: [process.env.FRONTEND_ORIGIN, 'http://checkout.stripe.com'],
   })
 );
-// app.use(cors());
 
 // routers
 app.use('/products', productRouter);
 app.use('/checkout', checkoutRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
