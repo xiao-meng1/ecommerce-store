@@ -33,8 +33,8 @@ npm install
 3. Populate MongoDB database and Stripe Products.
 
 ```bash
-# cd backend/scripts
-# node populateStripeAndDB
+cd backend/scripts
+node populateStripeAndDB
 ```
 
 4. Serve client and server from root directory.
