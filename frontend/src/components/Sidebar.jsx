@@ -7,6 +7,9 @@ import {
   selectOverlayIsActive,
   toggleOverlayOff,
 } from '../redux/slices/overlaySlice';
+import expandLessIcon from '../assets/icons/expand_less_black_24dp.svg';
+import expandMoreIcon from '../assets/icons/expand_more_black_24dp.svg';
+import navigateNextIcon from '../assets/icons/navigate_next_black_24dp.svg';
 
 const productCategories = [
   { main: 'Games', secondary: ['New Releases', 'Upcoming'] },
@@ -49,15 +52,9 @@ function Sidebar() {
               >
                 <p>{category.main}</p>
                 {category.main === activeCategory ? (
-                  <img
-                    src="images/icons/expand_less_black_24dp.svg"
-                    alt="expand less icon"
-                  />
+                  <img src={expandLessIcon} alt="expand less icon" />
                 ) : (
-                  <img
-                    src="images/icons/expand_more_black_24dp.svg"
-                    alt="expand more icon"
-                  />
+                  <img src={expandMoreIcon} alt="expand more icon" />
                 )}
               </button>
               {activeCategory === category.main ? (
@@ -71,10 +68,7 @@ function Sidebar() {
                     }}
                   >
                     <p>{`Shop all ${activeCategory}`}</p>
-                    <img
-                      src="images/icons/navigate_next_black_24dp.svg"
-                      alt="navigate next icon"
-                    />
+                    <img src={navigateNextIcon} alt="navigate next icon" />
                   </Link>
                   {productCategories
                     .find((x) => x.main === activeCategory)
@@ -89,10 +83,7 @@ function Sidebar() {
                         key={subCategory}
                       >
                         <p>{subCategory}</p>
-                        <img
-                          src="images/icons/navigate_next_black_24dp.svg"
-                          alt="navigate next icon"
-                        />
+                        <img src={navigateNextIcon} alt="navigate next icon" />
                       </Link>
                     ))}
                 </>
