@@ -9,7 +9,7 @@ The backend was built using Express, MongoDB, and Stripe API. The frontend was b
 * node (18.4.0)
 * npm (8.12.1)
 
-## Getting Started
+## Installation and Usage
 
 1. Install dependencies in root, frontend, and backend directories.
 
