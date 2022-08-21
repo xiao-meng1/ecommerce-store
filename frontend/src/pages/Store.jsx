@@ -32,7 +32,7 @@ function Store() {
     } else {
       dispatch(fetchProducts());
     }
-  }, [searchParams]);
+  }, [searchParams, apiIsConnected]);
 
   if (productsIsIdle) {
     productIds.current = Object.keys(products);
