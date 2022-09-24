@@ -2,8 +2,7 @@
 
 Shoptendo is an ecommerce web app for Nintendo products. Users can browse a catalogue, add products to their cart, and pay using Stripe. Check it out [here](https://shoptendo.netlify.app)!
 
-
-Technologies:
+### Technologies:
 * Backend: Express, NodeJS, MongoDB (Mongoose, GridFS), Stripe, Heroku
 * Frontend: React, Redux, React Router, Netlify
 
